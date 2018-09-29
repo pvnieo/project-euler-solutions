@@ -1,3 +1,4 @@
+
 num_in_word = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty"]
 dic_num = {}
 for i in range(21):
@@ -48,7 +49,7 @@ def num_to_letter_converter(num):
 
     return num_letter
 
-# print(len(num_to_letter_converter(1)))
+
 s = ""
 for i in range(1,1001):
     s += num_to_letter_converter(i)
