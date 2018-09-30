@@ -1,40 +1,37 @@
 
-def it_is_abundant(n):
-  k = 0
-  for i in range(n//2 + 1, 0, -1):
+def is_abundant(n):
+  s = 0
+  for i in range(1, n // 2 + 1):
     if n % i == 0:
-      k += i
-      if k > n :
-        return True
-  else :
-    return False
-dictn = {}
-dictn[12] = set([12])
-for x in range(13,28124):
-
-  if it_is_abundant(x):
-    print("ab{}".format(x))
-    dictn[x] = dictn[x-1] | {x}
+      s += i
+  if s > n :
+    return True
   else:
-    print("Nab{}".format(x))
-    dictn[x] = dictn[x-1].copy()
-count = 0
-print("Begin search ...")
-def is_sum(num, l):
-  for i in range(len(l)):
-    for j in range(i, len(l)):
-      if i+j == num:
-        return True
+    return False
+
+
+def is_sum_abundant(n, list_abundant):
+  for i in list_abundant[::-1]:
+    if i < n:
+      return False
+    elif n == i:
+      return True
   return False
 
-for i in range(28124):
-  l = []
-  for j in abundant:
-    if j <= i:
-      l.append(j)
-    else :
-      break
-  if not is_sum(i,l):
-    count += i
 
-print(count)
+th_max = 28123
+s = 0
+abundants = []
+for i in range(1, th_max):
+  print(i, "\r", end="")
+  if is_abundant(i):
+    abundants.append(i)
+  dr = False
+  for x in abundants:
+    if is_sum_abundant((i - x), abundants):
+      dr = True
+      break
+  if not dr:
+    s += i
+
+print(s)

@@ -4,6 +4,7 @@ with open("p022_names.txt", "r") as f:
   st = f.read().split(",")
   st = [x[1:len(x)-1] for x in st]
   st.sort()
+  
 alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 name_weight = {}
 for i,x in enumerate(alphabet):
