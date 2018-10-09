@@ -13,7 +13,7 @@ def is_prime_basic(x):
         i += 6
     return True
 
-counter, i = 0 , 2
+counter, i = 0, 2
 max = 10001
 while counter < max:
     if is_prime_basic(i):
