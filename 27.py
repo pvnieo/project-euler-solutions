@@ -13,6 +13,7 @@ def is_prime_basic(x):
         i += 6
     return True
 
+
 def len_consectuve_prime(a, b):
     s = 0
     while True:

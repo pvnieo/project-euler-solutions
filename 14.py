@@ -5,6 +5,7 @@ def next_collatz(n):
     else:
         return 3 * n + 1
 
+
 def collatz_length(n):
     s = 1
     while n != 1:

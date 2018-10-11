@@ -30,4 +30,3 @@ s += sum(spiral[i][-1-i] for i in range(len(spiral)))
 s -= 1
 
 print(s)
-

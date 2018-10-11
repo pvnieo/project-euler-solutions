@@ -1,5 +1,6 @@
 from functools import reduce
 
+
 def is_prime_basic(x):
     if x <= 1:
         return False
@@ -18,7 +19,7 @@ def is_prime_basic(x):
 def prime_factorisation(n, primes):
     factorisation = []
     i = 0
-    temp = [0,0]
+    temp = [0, 0]
     while n != 1:
         p = primes[i]
         while n % p == 0:
@@ -29,11 +30,12 @@ def prime_factorisation(n, primes):
         i += 1
     return factorisation
 
+
 def num_divisors(n, primes):
     if n < 2:
         return 1
     factorisation = prime_factorisation(n, primes)
-    return reduce(lambda x,y:  x*y, [x[1]+1 for x in factorisation])
+    return reduce(lambda x, y:  x*y, [x[1]+1 for x in factorisation])
 
 
 primes = []
@@ -44,7 +46,7 @@ for i in range(2, M):
         primes.append(i)
 print()
 
-s , i = 0, 1
+s, i = 0, 1
 nd = num_divisors(s, primes)
 while nd < 500:
     s += i

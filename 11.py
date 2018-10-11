@@ -1,10 +1,10 @@
 
-def prod_adjacent(l ,i ,j , num_adj=4, dir=(1,1)):
+def prod_adjacent(l, i, j, num_adj=4, dir=(1, 1)):
     p = 1
     for a in range(num_adj):
         p *= l[i + a*dir[0]][j + a*dir[1]]
     return p
- 
+
 
 grid = """08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00
@@ -34,26 +34,26 @@ M = 0
 
 for i in range(n):
     for j in range(m - 4):
-        if prod_adjacent(grid, i, j, dir=(0,1)) > M:
-            M = prod_adjacent(grid, i, j, dir=(0,1))
+        if prod_adjacent(grid, i, j, dir=(0, 1)) > M:
+            M = prod_adjacent(grid, i, j, dir=(0, 1))
 print(M)
 
 for i in range(n - 4):
     for j in range(m):
-        if prod_adjacent(grid, i, j, dir=(1,0)) > M:
-            M = prod_adjacent(grid, i, j, dir=(1,0))
+        if prod_adjacent(grid, i, j, dir=(1, 0)) > M:
+            M = prod_adjacent(grid, i, j, dir=(1, 0))
 print(M)
 
 for i in range(n - 4):
     for j in range(m - 4):
-        if prod_adjacent(grid, i, j, dir=(1,1)) > M:
-            M = prod_adjacent(grid, i, j, dir=(1,1))
+        if prod_adjacent(grid, i, j, dir=(1, 1)) > M:
+            M = prod_adjacent(grid, i, j, dir=(1, 1))
 print(M)
 
 for i in range(m - 4):
     for j in range(3, n):
-        if prod_adjacent(grid, i, j, dir=(1,-1)) > M:
-            M = prod_adjacent(grid, i, j, dir=(1,-1))
+        if prod_adjacent(grid, i, j, dir=(1, -1)) > M:
+            M = prod_adjacent(grid, i, j, dir=(1, -1))
 
 
 print(M)

@@ -1,3 +1,4 @@
+
 pyramide = """
 75
 95 64
@@ -18,9 +19,9 @@ pyramide = """
 pyramide = pyramide.splitlines()
 pyramide = [st.split() for st in pyramide]
 pyramide.pop(0)
-pyramide = [list(map(int, lis))  for lis in pyramide]
+pyramide = [list(map(int, lis)) for lis in pyramide]
 paths = list(pyramide)
-for i in range(len(paths)-2 , -1, -1):
+for i in range(len(paths) - 2, -1, -1):
     for j in range(len(paths[i])):
-        paths[i][j] += max(paths[i+1][j], paths[i+1][j+1]) 
+        paths[i][j] += max(paths[i+1][j], paths[i+1][j+1])
 print(paths[0][0])
