@@ -26,7 +26,7 @@ max = 0
 
 for i in range(0, len(num) - 13):
     s = num[i:i+13]
-    p = reduce(lambda x,y: int(x)*int(y), list(s))
+    p = reduce(lambda x, y: int(x)*int(y), list(s))
     if max < p:
         max = p
 

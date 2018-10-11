@@ -7,6 +7,7 @@ def factorial(n):
 
 factorial_cache = {i: factorial(i) for i in range(10)}
 
+
 def is_digit_factorial(n):
     if n in [1, 2]:
         return False
@@ -17,7 +18,7 @@ def is_digit_factorial(n):
     else:
         return False
 
-s = 0       
+s = 0      
 for i in range(8 * factorial_cache[9] + 1):
     print(i, "\r", end="")
     if is_digit_factorial(i):

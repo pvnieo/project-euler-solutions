@@ -15,4 +15,3 @@ for i in range(1, 50):
 print()
 ways = set(ways)
 print(len(ways))
-

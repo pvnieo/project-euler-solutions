@@ -1,6 +1,6 @@
 
 
-s1 , s2 = 0, 0
+s1, s2 = 0, 0
 for i in range(101):
     s1 += i ** 2
     s2 += i

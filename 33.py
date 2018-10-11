@@ -2,6 +2,7 @@ from fractions import Fraction
 
 # The ugliest code I've ever written
 
+
 def is_digit_cancelling(i, j):
     if i % 10 == 0 and j % 10 == 0:
         return False
@@ -25,9 +26,9 @@ l = []
 for i in range(1, 100):
     for j in range(i+1, 100):
         if is_digit_cancelling(i, j):
-            l.append((i,j))
+            l.append((i, j))
 
-p = (1,1)
+p = (1, 1)
 for t in l:
     a, b = t
     p = (p[0]*a, p[1]*b)

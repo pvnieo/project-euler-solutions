@@ -13,6 +13,7 @@ def is_prime_basic(x):
         i += 6
     return True
 
+
 def rotations(digits):
     l = []
     for i in range(len(digits) - 1):
@@ -22,7 +23,7 @@ def rotations(digits):
 
 
 def is_circular_prime(p):
-    digits = list(map(int,str(p)))
+    digits = list(map(int, str(p)))
     if sum([1 if x % 2 == 0 else 0 for x in digits]) != 0 and p != 2:
         return False
     combinations = rotations(digits)
