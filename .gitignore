@@ -139,3 +139,12 @@ venv.bak/
 *.exe
 *.out
 *.app
+
+# test
+
+
+*
+!*.py
+!*.cpp
+!*.txt
+test.cpp
