@@ -24,4 +24,3 @@ for i in range(1, M+1):
 
 print()
 print(arg)
-
