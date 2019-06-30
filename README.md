@@ -1,5 +1,5 @@
 # project-euler-solutions
-Collection of solutions to Project Euler in Python3 and C++.
+Collection of solutions to Project Euler in Python and C++.
 
 What is Project Euler?
 ----------------------
