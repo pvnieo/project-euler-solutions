@@ -15,7 +15,6 @@ def sum_div(m):
     return sm
 
 l = [sum_div(i) for i in l]
-print(l[:10])
 amical = 0
 for i in range(1, N):
     m = l[i]
