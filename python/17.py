@@ -36,7 +36,7 @@ def between_100_999_converter(num):
     if (d*10 + u) == 0:
         return dic_num[c]+dic_num[100]
     else:
-        return dic_num[c]+dic_num[100] + dic_num[" "] + less_than_100_converter(d*10 + u)  
+        return dic_num[c]+dic_num[100] + dic_num[" "] + less_than_100_converter(d*10 + u)
 
 
 def num_to_letter_converter(num):
