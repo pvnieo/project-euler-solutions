@@ -11,17 +11,17 @@ def get_cycle(a, b):
         a = a % b
     if a == 0:
         return ""
-    else: 
+    else:
         return decimal[restes.index(a):]
 
 
-cycle_max, max_len, k = 0, 0, 0
+max_len, k = 0, 0
 
 for i in range(1, 1000):
     cycle = get_cycle(1, i)
     length = len(cycle)
     if max_len < length:
-        cycle_max, max_len = cycle, length
+        max_len = length
         k = i
 
-print(k, max_len)
+print(k)
