@@ -19,7 +19,7 @@ def len_consectuve_prime(a, b):
     while True:
         if is_prime_basic(s**2 + a * s + b):
             s += 1
-        else: 
+        else:
             break
     return s-1
 
