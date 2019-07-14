@@ -1,4 +1,3 @@
-
 def num_solution(p):
     s = 0
     for a in range(1, p//2):
@@ -6,9 +5,6 @@ def num_solution(p):
         if int(b) == b:
             s += 1
     return s // 2
-
-
-assert num_solution(120) == 3
 
 M, p = 0, 0
 
