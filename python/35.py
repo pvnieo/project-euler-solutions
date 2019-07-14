@@ -13,14 +13,12 @@ def is_prime_basic(x):
         i += 6
     return True
 
-
 def rotations(digits):
     l = []
     for i in range(len(digits) - 1):
         digits = [digits[-1]] + digits[:-1]
         l.append(int("".join(map(str, digits))))
     return l
-
 
 def is_circular_prime(p):
     digits = list(map(int, str(p)))
@@ -33,11 +31,4 @@ def is_circular_prime(p):
     return True
 
 
-c_p = 0
-for i in range(1000000):
-    print(i, "\r", end="")
-    if is_prime_basic(i) and is_circular_prime(i):
-            c_p += 1
-
-print()
-print(c_p)
+print(sum([1 for i in range(1000000) if is_prime_basic(i) and is_circular_prime(i)]))
