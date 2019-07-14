@@ -29,11 +29,9 @@ def is_truncatable_prime(p):
 s, count, i = 0, 0, 11
 
 while count < 11:
-    print(i, " | ", count, "\r", end="")
     if is_prime_basic(i) and is_truncatable_prime(i):
         count += 1
         s += i
     i += 2
 
-print()
 print(s)
