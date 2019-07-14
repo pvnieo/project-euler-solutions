@@ -6,12 +6,4 @@ def is_pal(s):
             return False
     return True
 
-s = 0
-
-for i in range(1000000):
-    print(i, "\r", end="")
-    if is_pal(str(i)) and is_pal(bin(i)[2:]):
-        s += i
-
-print()
-print(s)
+print(sum((i for i in range(1000000) if is_pal(str(i)) and is_pal(bin(i)[2:]))))
