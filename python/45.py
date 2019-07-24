@@ -14,10 +14,6 @@ def is_hexa(n):
         return True
     return False
 
-assert is_penta(40755)
-assert is_hexa(40755)
-print("ok")
-
 i = 286
 
 while True:
