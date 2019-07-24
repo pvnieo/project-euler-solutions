@@ -11,7 +11,6 @@ assert is_penta(92)
 
 D = 5482660
 for i in range(1, 100000):
-    print(i, "\r", end="")
     a = i * (3*i - 1) / 2
     for j in range(i+1, 100000):
         b = j * (3*j - 1) / 2
@@ -21,6 +20,4 @@ for i in range(1, 100000):
             break
         elif is_penta(s) and is_penta(d):
             D = d
-
-print()
 print(D)
