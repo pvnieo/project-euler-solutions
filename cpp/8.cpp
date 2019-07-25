@@ -22,7 +22,7 @@ int main() {
         if (p > max)
             max = p;
     }
-    
+
     cout << max << endl;
     return 0;
 }
