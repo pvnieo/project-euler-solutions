@@ -16,10 +16,8 @@ def is_prime_basic(x):
     return True
 
 primes = [2]
-
 i = 3
 while True:
-    print(i, "\r", end="")
     if is_prime_basic(i):
         primes.append(i)
     else:
