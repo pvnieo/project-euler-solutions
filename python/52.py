@@ -1,4 +1,3 @@
-
 def is_multi_has_same_digits(x):
     base = sorted(list(map(int, str(x))))
     for i in range(2, 7):
@@ -9,7 +8,6 @@ def is_multi_has_same_digits(x):
 x = 10
 
 while(not is_multi_has_same_digits(x)):
-    print(x, "\r", end="")
     x += 1
 
 print(x)
