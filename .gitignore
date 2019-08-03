@@ -146,6 +146,7 @@ venv.bak/
 cpp/*
 !cpp/*.cpp
 !cpp/*.txt
+!cpp/bigint.h
 cpp/tempCodeRunnerFile.cpp
 python/tempCodeRunnerFile.py
 test
