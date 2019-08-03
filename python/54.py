@@ -1,5 +1,3 @@
-# stdlib
-from time import time
 from collections import Counter
 
 
@@ -67,9 +65,7 @@ def is_player_1_winning(game):
 
 
 if __name__ == "__main__":
-    since = time()
     games = [preprocess_hand(l.strip()) for l in open("p054_poker.txt").readlines()]
 
     count = sum([is_player_1_winning(game) for game in games])
     print(f"Player 1 won {count} times!")
-    print(f"Took {round(time() - since, 2)} s")
