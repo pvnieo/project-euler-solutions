@@ -164,7 +164,7 @@ bool is_player_1_winning(vector<vector<string>> game)
 
 int main()
 {
-    int count {};
+    int count{};
     fstream file("54.txt");
     string line{};
     vector<string> hands{};
@@ -175,25 +175,13 @@ int main()
         hands.push_back(line);
     }
 
-    for (string hand: hands){
+    for (string hand : hands)
+    {
         cards = preprocess_hand(hand);
         if (is_player_1_winning(cards))
             count++;
     }
 
     cout << count << endl;
-
-    // cout << hands[2] << endl;
-    // cards = preprocess_hand(hands[2]);
-    // vector<int> sorted_values{};
-    // for (int i = 0; i < cards.size(); i++)
-    // {
-    //     sorted_values.push_back(stoi(cards[i][0]));
-    // }
-    // vector<vector<int>> count = counter(sorted_values);
-    // sort(sorted_values.begin(), sorted_values.end());
-    // for (vector<int> i : count)
-    //     cout << i[0] << " " << i[1] << endl;
-
     return 0;
 }
