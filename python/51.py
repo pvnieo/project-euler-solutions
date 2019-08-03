@@ -1,11 +1,21 @@
-import numpy as np
-from itertools import combinations_with_replacement, product
-from collections import defaultdict
+def sieve(n):
+    is_prime = [True]*n
+    is_prime[0] = False
+    is_prime[1] = False
+    # even numbers except 2 have been eliminated
+    for i in range(3, int(n**0.5+1), 2):
+        index = i*2
+        while index < n:
+            is_prime[index] = False
+            index = index+i
+    prime = [2]
+    for i in range(3, n, 2):
+        if is_prime[i]:
+            prime.append(i)
+    return prime
 
-# it took me a long time, the code is not clean and optimized
 
-
-def is_prime_basic(x):
+def is_prime(x):
     if x <= 1:
         return False
     elif x <= 3:
@@ -20,92 +30,21 @@ def is_prime_basic(x):
     return True
 
 
-def is_sub_in_l(a, b):
-    """Verify if elements of a in b and b - a is composed from the same digit"""
-    b = list(map(int, str(b)))
-    for x in a:
-        try:
-            b.remove(x)
-        except ValueError:
-            return False
-    if len(set(b)) == 1:
-        return True
-    return False
+def is_eight_family(p, d):
+    count = 0
+    for i in '0123456789':
+        n = int(p.replace(d, i))
+        if is_prime(n) and n > 100000:
+            count += 1
+    return count == 8
 
 
-def get_unique(l):
-    tr = []
-    for x in l:
-        if x not in tr:
-            tr.append(x)
-    return tr
-
-
-def get_fixed(temp, x):
-    """Return list of list of primes that have the digits in x in the same position"""
-    temp_s = list(map(lambda p: list(str(p)), temp))
-    x_s = list(map(str, x))
-    dic_index = defaultdict(list)
-    for i, p in enumerate(temp_s):
-        inds = {}
-        for j, s in enumerate(x_s):
-            indices = [k for k, x in enumerate(p) if x == s]
-            inds[j] = indices
-        inds = list(product(*inds.values()))
-        for ind in inds:
-            if len(set(ind)) == len(x):
-                dic_index[ind].append(temp[i])
-    if len(set(x)) != len(x):
-        unique, counts = np.unique(x, return_counts=True)
-        d = dict(zip(unique, counts))
-        for item, count in d.items():
-            if count > 1:
-                indices = [a for a, b in enumerate(x) if b == item]
-                keys = list(dic_index.keys())
-                truth = [tuple([idx[n] for n in indices]) for idx in keys]
-                truth = [tuple([set(truth[i]), set(k) - set(truth[i])]) for i, k in enumerate(keys)]
-                # print(truth)
-                unique = get_unique(truth)
-                for i, u in enumerate(unique):
-                    truth = [i if t == u else t for t in truth]
-                for i in range(len(unique)):
-                    trc = truth.copy()
-                    save = truth.index(i)
-                    trc.remove(i)
-                    for j in range(truth.count(i) - 1):
-                        ii = trc.index(i)
-                        trc.remove(i)
-                        dic_index[keys[save]] += dic_index[keys[ii]]
-                    dic_index[keys[save]] = list(set(dic_index[keys[save]]))
-    return dic_index.values()
-
-
-def is_family(primes, n, len_min=7):
-    """search in the list of primes_composition if there is a family of numbers that has n digit in common"""
-    to_return = []
-    for x in combinations_with_replacement(range(10), n):
-        temp = []
-        for i, prime in enumerate(primes):
-            if is_sub_in_l(x, prime):
-                temp.append(prime)
-        if len(temp) >= len_min:
-            temp = get_fixed(temp, x)
-            for list_primes in temp:
-                if len(list_primes) >= len_min:
-                    to_return.append((x, tuple(list_primes)))
-    return to_return
-
-primes = []
-for p in range(100001, 999999, 2):
-    if is_prime_basic(p):
-        unique, counts = np.unique(list(str(p)), return_counts=True)
-        d = {}
-        for i, x in enumerate(unique):
-            d[int(x)] = counts[i]
-        primes.append(p)
-
-for i in range(3, len(str(primes[0])) - 1):
-    tr = is_family(primes, i, len_min=8)
-    if len(tr) > 0:
-        print(tr)
-        break
+if __name__ == '__main__':
+    for prime in sieve(1000000):
+        if prime > 100000:
+            s = str(prime)
+            if (s.count('0') == 3 and is_eight_family(s, '0')) or\
+               (s.count('1') == 3 and is_eight_family(s, '1')) or \
+               (s.count('2') == 3 and is_eight_family(s, '2')):
+                break
+    print(prime)
